@@ -1,12 +1,16 @@
 package functions
 
 import (
+	"encoding/json"
 	"facebook-connector/pkg/model"
 )
 
-func StringToJson(requeststring *model.Requeststring) (string, error) {
+func StringToJson(requeststring string) (*model.Requeststring, error) {
+
+	var jsonModel *model.Requeststring
+	err := json.Unmarshal([]byte(requeststring), jsonModel)
 
 	// Code
 
-	return "", nil
+	return jsonModel, err
 }

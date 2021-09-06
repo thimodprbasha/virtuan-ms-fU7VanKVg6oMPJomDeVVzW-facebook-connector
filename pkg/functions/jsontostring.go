@@ -5,8 +5,5 @@ import (
 )
 
 func JsonToString(responsestring *model.Responsestring) (string, error) {
-
-	// Code
-
-	return "", nil
+	return responsestring.ReturnData, nil
 }
