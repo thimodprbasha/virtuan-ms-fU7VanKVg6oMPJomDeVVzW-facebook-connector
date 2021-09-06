@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
        - name: facebook-connector
-         image: /com.fb.srv_facebook-connector:vCgJQXmQcivBi7GL9YSdtci
+         image: thimodprabasha/com.fb.srv_facebook-connector:vsdMJwC8BDKPipho5DBPWEA
          imagePullPolicy: Always
          env:
           - name: GRPC_PORT

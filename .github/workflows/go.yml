@@ -22,7 +22,7 @@ jobs:
       uses: mr-smithers-excellent/docker-build-push@v5
       with:
           image: ${{ secrets.DOCKER_USERNAME }}/com.fb.srv_facebook-connector
-          tags: vCgJQXmQcivBi7GL9YSdtci
+          tags: vsdMJwC8BDKPipho5DBPWEA
           registry: docker.io
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
@@ -30,7 +30,7 @@ jobs:
     - name: helm update
       run: |
           # update the helm file
-          sed -i 's/:v.*/:vCgJQXmQcivBi7GL9YSdtci/g' helm/templates/service-gen-deployment.yaml
+          sed -i 's/:v.*/:vsdMJwC8BDKPipho5DBPWEA/g' helm/templates/service-gen-deployment.yaml
 
     - name: Commit & Push changes
       uses: actions-js/push@master
