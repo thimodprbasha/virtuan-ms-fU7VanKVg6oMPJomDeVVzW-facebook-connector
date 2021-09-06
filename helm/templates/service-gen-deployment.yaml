@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: facebook-connector
+  labels:
+    app: facebook-connector
+spec:
+  selector:
+    matchLabels:
+      app: facebook-connector
+  replicas:  {{.Values.replicas}}
+  template:
+    metadata:
+      labels:
+        app: facebook-connector
+    spec:
+      containers:
+       - name: facebook-connector
+         image: /com.fb.srv_facebook-connector:vCgJQXmQcivBi7GL9YSdtci
+         imagePullPolicy: Always
+         env:
+          - name: GRPC_PORT
+            value: "{{.Values.GRPC_PORT}}"
+          - name: REST_PORT
+            value: "{{.Values.REST_PORT}}"
+         ports:
+          - containerPort: {{.Values.GRPC_PORT}}
+            name: grpc
+      imagePullSecrets:
+          - name: {{.Values.imagePullSecrets}}

@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: facebook-connectorsrv
+    service: facebook-connectorsrv
+  name: facebook-connectorsrv
+spec:
+  ports:
+  - name: grpc
+    port: {{.Values.GRPC_PORT}}
+    targetPort: {{.Values.GRPC_PORT}}
+  selector:
+    app: facebook-connector
